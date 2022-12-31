@@ -24,14 +24,15 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
   late UserData currentUser;
   bool userDataIsLoaded = false;
 
-  _HomePageState() {
+  @override
+  void initState() {
     super.initState();
     API().getCurrentUserData().then((value) {
       currentUser = value;
       userDataIsLoaded = true;
-
-      setState(() {});
     });
+
+    setState(() {});
   }
 
   @override
