@@ -30,9 +30,8 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
     API().getCurrentUserData().then((value) {
       currentUser = value;
       userDataIsLoaded = true;
+      setState(() {});
     });
-
-    setState(() {});
   }
 
   @override
