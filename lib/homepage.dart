@@ -22,16 +22,11 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   late UserData currentUser;
-  late String username;
 
-  late Widget username_W; 
-
-  _getUsername() {
+  _HomePageState() {
     API().getCurrentUserData().then((value) {
       currentUser = value;
-      username = currentUser.name;
-
-      username_W = Text(username);
+      setState(() {});
     });
   }
 
@@ -72,16 +67,13 @@ class _HomePageCopyWidgetState extends State<HomePageCopyWidget> {
                   alignment: AlignmentDirectional(0.45, 0.05),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 85, 0),
-                    child: username_W
-                    
-                    /*
-                    Text(
-                      "Vishal Yalla",
+                    child: Text(
+                      currentUser.name,
                       style: FlutterFlowTheme.of(context).title1.override(
                             fontFamily: 'Poppins',
                             fontSize: 40,
                           ),
-                    ),*/
+                    ),
                   ),
                 ),
                 Align(
